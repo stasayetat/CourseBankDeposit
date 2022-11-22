@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursebankdeposit.HelloController">
+   <top>
+      <MenuBar prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Додати">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Власний депозит" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Шаблонний депозит" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Порахувати">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Порахувати" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Детальніше про депозит" />
+            <Menu mnemonicParsing="false" text="Шукати">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Кількість грошей" />
+                  <MenuItem mnemonicParsing="false" text="Ім'я компанії" />
+                  <MenuItem mnemonicParsing="false" text="Ім'я депозиту" />
+                  <MenuItem mnemonicParsing="false" text="Відсотки" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Робота з файлами">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Читати з файлу" />
+                  <MenuItem mnemonicParsing="false" text="Запис у файл" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
