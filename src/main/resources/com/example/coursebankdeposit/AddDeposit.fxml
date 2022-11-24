@@ -90,12 +90,12 @@
             <TextField fx:id="depositNameField" prefHeight="26.0" prefWidth="203.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="508.0" layoutY="290.0" text="Коли?">
+      <Label layoutX="508.0" layoutY="320.0" text="Коли?">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="508.0" layoutY="350.0" text="Скільки?">
+      <Label layoutX="496.0" layoutY="375.0" text="Скільки?">
          <font>
             <Font size="20.0" />
          </font>

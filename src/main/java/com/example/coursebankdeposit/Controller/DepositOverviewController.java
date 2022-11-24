@@ -191,9 +191,9 @@ public class DepositOverviewController {
             defaultDepositRead.setMonthlyCapitalization(Integer.valueOf(sc.nextLine()));
             defaultDepositRead.setAmountMonthlyAdd(Integer.valueOf(sc.nextLine()));
             defaultDepositRead.setCurrency(sc.nextLine());
-            defaultDepositRead.calcInvest();
-            main.getDepositData().add(defaultDepositRead);
         }
+        defaultDepositRead.calcInvest();
+        main.getDepositData().add(defaultDepositRead);
         sc.close();
     }
 
