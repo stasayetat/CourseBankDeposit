@@ -1,0 +1,37 @@
+CREATE DATABASE [BankDeposit]
+ CONTAINMENT = NONE
+ ON  PRIMARY
+( NAME = N'BankDeposit', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVERDEVDEV\MSSQL\DATA\BankDeposit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON
+( NAME = N'BankDeposit_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVERDEVDEV\MSSQL\DATA\BankDeposit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+
+DROP TABLE IF EXISTS [dbo].[ChooseData]
+CREATE TABLE [dbo].[ChooseData](
+	[Company Name] [varchar](30) NULL,
+	[Deposit Name] [varchar](30) NULL,
+	[Percentage] [float] NULL,
+	[MinInvestMoney] [int] NULL
+) ON [PRIMARY]
+GO
+
+DROP TABLE IF EXISTS [dbo].[DepositData]
+CREATE TABLE [dbo].[DepositData](
+	[ID] [int] NOT NULL,
+	[Company Name] [varchar](20) NULL,
+	[Deposit Name] [varchar](20) NULL,
+	[Amount Money] [float] NULL,
+	[Term Of Deposit] [int] NULL,
+	[Earnings] [float] NULL,
+	[Percentage] [float] NULL,
+	[Amount Monthly Add] [int] NULL,
+	[Currency] [varchar](50) NULL,
+	[EarlyTerm] [int] NULL,
+	[EarlyAmount] [float] NULL,
+ CONSTRAINT [PK_DepositData] PRIMARY KEY CLUSTERED
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO

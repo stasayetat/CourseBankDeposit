@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 import java.sql.*;
 import java.io.IOException;
 
+import static java.lang.System.getProperty;
+
 public class Main extends Application {
     private Stage primaryStage;
     private ObservableList<DefaultDeposit> depositData = FXCollections.observableArrayList();
