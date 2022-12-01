@@ -77,6 +77,7 @@ public class DepositOverviewController {
         boolean okClick = main.showAddDeposit(defaultDeposit);
         if(okClick){
             main.getDepositData().add(defaultDeposit);
+            depositTable.setItems(main.getDepositData());
         }
     }
 
@@ -88,7 +89,8 @@ public class DepositOverviewController {
     private ObservableList<DefaultDeposit> filterList(List<DefaultDeposit> list, String searchText){
         List<DefaultDeposit> filteredList = new ArrayList<>();
         for(DefaultDeposit defaultDeposit : list){
-            if(searchFind(defaultDeposit, searchText)) filteredList.add(defaultDeposit);
+            if(searchFind(defaultDeposit, searchText))
+                filteredList.add(defaultDeposit);
         }
         return FXCollections.observableList(filteredList);
     }
@@ -172,11 +174,19 @@ public class DepositOverviewController {
     }
 
     @FXML
-    private void ReadFileOption() throws FileNotFoundException {
+    private void ReadFileOption(){
         DefaultDeposit defaultDepositRead  = new DefaultDeposit();
         FileChooser fileChooser = new FileChooser();
         File resp = fileChooser.showOpenDialog(null);
-        FileInputStream fileInputStream = new FileInputStream(resp);
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(resp);
+        } catch (FileNotFoundException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Спробуйте ще раз!");
+            alert.setHeaderText("Вибрано поганий файл");
+            alert.showAndWait();
+        }
         Scanner sc = new Scanner(fileInputStream);
         while(sc.hasNextLine()){
             defaultDepositRead = DefaultDeposit.builder()
@@ -193,6 +203,13 @@ public class DepositOverviewController {
             defaultDepositRead.setCurrency(sc.nextLine());
         }
         defaultDepositRead.calcInvest();
+        if(defaultDepositRead.getCompanyName() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Спробуйте ще раз!");
+            alert.setHeaderText("Вибрано поганий файл");
+            alert.showAndWait();
+            return;
+        }
         main.getDepositData().add(defaultDepositRead);
         sc.close();
     }
@@ -203,6 +220,7 @@ public class DepositOverviewController {
         boolean okClick = main.showChooseDeposit(defaultDeposit);
         if(okClick){
             main.getDepositData().add(defaultDeposit);
+            depositTable.setItems(main.getDepositData());
         }
     }
 }
